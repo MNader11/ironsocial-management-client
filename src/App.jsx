@@ -5,7 +5,7 @@ import SignupPage from "./Pages/Signup";
 import LoginPage from "./Pages/Login";
 import TicketsList from "./Pages/TicketsList";
 import AddTicket from "./Pages/AddTicket";
-/* import EditTicket from "./Pages/EditTicket"; */
+import EditTicket from "./Pages/EditTicket";
 import CoworksList from "./Pages/CoworksList";
 import AppsList from "./Pages/AppsList";
 import ProjectsList from "./Pages/ProjectsList";
@@ -45,14 +45,6 @@ function App() {
           }
         />
         <Route
-          path="/"
-          element={
-            <IsPrivate>
-              <TicketsList />
-            </IsPrivate>
-          }
-        />
-        <Route
           path="/tickets"
           element={
             <IsPrivate>
@@ -65,6 +57,14 @@ function App() {
           element={
             <IsPrivate>
               <AddTicket />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/tickets/:ticketId/update"
+          element={
+            <IsPrivate>
+              <EditTicket />
             </IsPrivate>
           }
         />

@@ -14,9 +14,10 @@ function EditTicket() {
   const { ticketId } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get(`${API_URL}/api/ticket/${ticketId}`).then((response) => {
+  useEffect(() => { 
+    axios.get(`${API_URL}/api/tickets/${ticketId}`).then((response) => {
       const oneTicket = response.data;
+      console.log(response.data)
       setProject(oneTicket.project);
       setImage(oneTicket.image);
       setDescription(oneTicket.description);
@@ -28,22 +29,23 @@ function EditTicket() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const requestBody = { project, image, description, contact, userName };
+    console.log(requestBody)
 
     axios
-      .put(`${API_URL}/api/ticket/${ticketId}`, requestBody)
+      .put(`${API_URL}/api/tickets/${ticketId}/update`, requestBody)
       .then(() => {
-        navigate(`/ticket/${ticketId}`);
+        navigate(`/tickets`);
       })
       .catch((error) => {
-        console.log(error);
+        //console.log(error);
       });
   };
 
   const deleteTicket = () => {
     axios
-      .delete(`${API_URL}/api/ticket/${ticketId}`)
+      .delete(`${API_URL}/api/tickets/${ticketId}/delete`)
       .then(() => {
-        navigate("/");
+        navigate("/tickets");
       })
       .catch((error) => {
         console.log(error);
@@ -52,6 +54,7 @@ function EditTicket() {
 
   return (
     <div>
+      <h3>Edit Ticket</h3>
       <form onSubmit={handleSubmit}>
         <label>
           Project:

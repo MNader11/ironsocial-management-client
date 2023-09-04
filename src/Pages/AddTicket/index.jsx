@@ -69,7 +69,7 @@ function AddTicket() {
             onChange={(e) => setContact(e.target.value)}
           />
         </label>
-        <button type="submit">Add Project</button>
+        <button type="submit">Add Ticket</button>
       </form>
     </div>
   );
