@@ -12,6 +12,7 @@ import ProjectsList from "./Pages/ProjectsList";
 import HomePage from "./Pages/HomePage";
 import IsAnon from "./Components/isAnon";
 import IsPrivate from "./Components/isPrivate";
+import ProfilePage from "./Pages/ProfilePage";
 
 function App() {
   return (
@@ -33,6 +34,14 @@ function App() {
             <IsAnon>
               <LoginPage />
             </IsAnon>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <IsPrivate>
+              <ProfilePage />
+            </IsPrivate>
           }
         />
         <Route
