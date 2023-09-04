@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { AuthContext } from "../../Context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
@@ -8,21 +9,23 @@ function AddTicket() {
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [contact, setContact] = useState("");
-  const [userName, setUserName] = useState("");
+
+  const storedToken = localStorage.getItem("authToken");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { project, image, description, contact, userName };
+    const requestBody = { project, image, description, contact };
 
     axios
-      .post(`${API_URL}/api/tickets/create`, requestBody)
+      .post(`${API_URL}/api/tickets/create`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then(() => {
         setProject("");
         setImage("");
         setDescription("");
         setContact("");
-        setUserName("");
       })
       .catch((error) => console.log(error));
   };
@@ -64,15 +67,6 @@ function AddTicket() {
             name="contact"
             value={contact}
             onChange={(e) => setContact(e.target.value)}
-          />
-        </label>
-        <label>
-          User Name:
-          <input
-            type="text"
-            name="userName"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
           />
         </label>
         <button type="submit">Add Project</button>
