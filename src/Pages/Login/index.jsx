@@ -2,6 +2,10 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/auth.context";
+// MUI
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const API_URL = "http://localhost:5005";
 
@@ -63,7 +67,6 @@ function LoginPage() {
       <p>Do not have an accunt yet?</p>
       <Link to="/signup">Sign Up</Link>
     </div>
-  );
-}
+)}
 
 export default LoginPage;

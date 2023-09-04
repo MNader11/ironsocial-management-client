@@ -16,7 +16,7 @@ function AddTicket() {
     const requestBody = { project, image, description, contact, userName };
 
     axios
-      .post(`${API_URL}/tickets`, requestBody)
+      .post(`${API_URL}/api/tickets/create`, requestBody)
       .then(() => {
         setProject("");
         setImage("");
@@ -75,6 +75,7 @@ function AddTicket() {
             onChange={(e) => setUserName(e.target.value)}
           />
         </label>
+        <button type="submit">Add Project</button>
       </form>
     </div>
   );

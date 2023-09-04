@@ -3,6 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import SignupPage from "./Pages/Signup";
 import LoginPage from "./Pages/Login";
+import TicketsList from "./Pages/TicketsList";
+import AddTicket from "./Pages/AddTicket";
+/* import EditTicket from "./Pages/EditTicket"; */
+import CoworksList from "./Pages/CoworksList";
+import AppsList from "./Pages/AppsList";
+import ProjectsList from "./Pages/ProjectsList";
+import HomePage from "./Pages/HomePage";
 import IsAnon from "./Components/isAnon";
 import IsPrivate from "./Components/isPrivate";
 
@@ -11,12 +18,13 @@ function App() {
     <div>
       <Navbar />
       <Routes>
+        <Route path="/signup" element={<SignupPage />} />
         <Route
-          path="/signup"
+          path="/"
           element={
-            
-              <SignupPage />
-            
+            <IsAnon>
+              <HomePage />
+            </IsAnon>
           }
         />
         <Route
@@ -25,6 +33,54 @@ function App() {
             <IsAnon>
               <LoginPage />
             </IsAnon>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <IsPrivate>
+              <TicketsList />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/tickets"
+          element={
+            <IsPrivate>
+              <TicketsList />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/tickets/create"
+          element={
+            <IsPrivate>
+              <AddTicket />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/coworks"
+          element={
+            <IsPrivate>
+              <CoworksList />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/apps"
+          element={
+            <IsPrivate>
+              <AppsList />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <IsPrivate>
+              <ProjectsList />
+            </IsPrivate>
           }
         />
       </Routes>
