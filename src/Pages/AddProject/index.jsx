@@ -5,41 +5,42 @@ import { AuthContext } from "../../Context/auth.context";
 const API_URL = "http://localhost:5005";
 
 function AddProject() {
-  const [project, setProject] = useState("");
   const [image, setImage] = useState("");
+  const [name, setName] = useState("");
+  const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
-  const [contact, setContact] = useState("");
 
   const storedToken = localStorage.getItem("authToken");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { project, image, description, contact };
+    const requestBody = { image, name, link, description };
 
     axios
-      .post(`${API_URL}/api/tickets/create`, requestBody, {
+      .post(`${API_URL}/api/projects/create`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
-        setProject("");
         setImage("");
+        setName("");
+        setLink("");
         setDescription("");
-        setContact("");
       })
       .catch((error) => console.log(error));
   };
 
   return (
     <div>
+      <h3>Post Project</h3>
       <form onSubmit={handleSubmit}>
         <label>
-          Project:
+          Name:
           <input
             type="text"
-            name="project"
-            value={project}
-            onChange={(e) => setProject(e.target.value)}
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </label>
         <label>
@@ -52,6 +53,15 @@ function AddProject() {
           />
         </label>
         <label>
+          Link:
+          <input
+            type="text"
+            name="link"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+          />
+        </label>
+        <label>
           Description:
           <input
             type="text"
@@ -60,18 +70,9 @@ function AddProject() {
             onChange={(e) => setDescription(e.target.value)}
           />
         </label>
-        <label>
-          Contact:
-          <input
-            type="text"
-            name="contact"
-            value={contact}
-            onChange={(e) => setContact(e.target.value)}
-          />
-        </label>
         <button type="submit">Add Project</button>
       </form>
     </div>
   );
 }
-export default AddTicket;
+export default AddProject;

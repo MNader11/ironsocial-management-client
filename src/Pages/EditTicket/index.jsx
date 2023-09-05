@@ -101,7 +101,7 @@ function EditTicket() {
             onChange={(e) => setUserName(e.target.value)}
           />
         </label>
-        <button type="submit">Edit</button>
+        <button type="submit">Update</button>
       </form>
       <button onClick={deleteTicket}>Delete</button>
     </div>

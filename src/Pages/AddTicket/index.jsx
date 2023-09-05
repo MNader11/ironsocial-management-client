@@ -32,6 +32,7 @@ function AddTicket() {
 
   return (
     <div>
+      <h3>Post Ticket</h3>
       <form onSubmit={handleSubmit}>
         <label>
           Project:

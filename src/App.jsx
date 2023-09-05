@@ -6,9 +6,13 @@ import LoginPage from "./Pages/Login";
 import TicketsList from "./Pages/TicketsList";
 import AddTicket from "./Pages/AddTicket";
 import EditTicket from "./Pages/EditTicket";
+import MyTickets from "./Pages/MyTickets";
 import CoworksList from "./Pages/CoworksList";
 import AppsList from "./Pages/AppsList";
 import ProjectsList from "./Pages/ProjectsList";
+import AddProject from "./Pages/AddProject";
+import EditProject from "./Pages/EditProjects";
+import MyProjects from "./Pages/MyProjects";
 import HomePage from "./Pages/HomePage";
 import IsAnon from "./Components/isAnon";
 import IsPrivate from "./Components/isPrivate";
@@ -37,7 +41,7 @@ function App() {
           }
         />
         <Route
-          path="/login"
+          path="/profile"
           element={
             <IsPrivate>
               <ProfilePage />
@@ -69,6 +73,22 @@ function App() {
           }
         />
         <Route
+          path="/profile/mytickets"
+          element={
+            <IsPrivate>
+              <MyTickets />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/profile/myprojects"
+          element={
+            <IsPrivate>
+              <MyProjects />
+            </IsPrivate>
+          }
+        />
+        <Route
           path="/coworks"
           element={
             <IsPrivate>
@@ -89,6 +109,22 @@ function App() {
           element={
             <IsPrivate>
               <ProjectsList />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/projects/create"
+          element={
+            <IsPrivate>
+              <AddProject />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/projects/:projectId/update"
+          element={
+            <IsPrivate>
+              <EditProject />
             </IsPrivate>
           }
         />

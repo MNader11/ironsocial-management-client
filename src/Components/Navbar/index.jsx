@@ -38,7 +38,7 @@ function Navbar() {
     setAnchorElUser(null);
   };
   return (
-    <AppBar position="fixed" sx={{ mb: ''}}>
+    <AppBar position="fixed" sx={{ mb: "" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -197,7 +197,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -226,6 +226,16 @@ function Navbar() {
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Link to="/tickets/create">
                       <Typography textAlign="center">Add Ticket</Typography>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Link to="/profile/mytickets">
+                      <Typography textAlign="center">My Tickets</Typography>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Link to="/profile/myprojects">
+                      <Typography textAlign="center">My Projects</Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={logOutUser}>
