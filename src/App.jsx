@@ -80,14 +80,16 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route
-          path="/profile/myprojects"
-          element={
-            <IsPrivate>
-              <MyProjects />
-            </IsPrivate>
-          }
-        />
+        {
+          <Route
+            path="/profile/myprojects"
+            element={
+              <IsPrivate>
+                <MyProjects />
+              </IsPrivate>
+            }
+          />
+        }
         <Route
           path="/coworks"
           element={

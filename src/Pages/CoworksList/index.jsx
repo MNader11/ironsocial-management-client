@@ -22,7 +22,7 @@ function CoworksList() {
   }, []);
 
   return (
-    <div>
+    <div style={{paddingTop: "72px", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
     {coworks.map((cowork) => (
       <Card key={cowork._id} sx={{ maxWidth: 345, margin: "16px" }}>
         <CardActionArea>

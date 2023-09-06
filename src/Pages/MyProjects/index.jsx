@@ -14,7 +14,7 @@ function MyProjects() {
       .catch((error) => console.log(error));
   }, []);
 
-  const deleteProject = (projectId) => {
+  const deleteProjects = (projectId) => {
     axios
       .delete(`${API_URL}/api/projects/${projectId}/delete`)
       .then(() => {
@@ -38,11 +38,12 @@ function MyProjects() {
               <h2>{project.name}</h2>
               <p>{project.link}</p>
               <p>{project.description}</p>
-
               <Link to={`/projects/${project._id}/update`}>
                 <button type="submit">Update</button>
               </Link>
-              <button onClick={() => deleteProject(project._id)}>Delete</button>
+              <button onClick={() => deleteProjects(project._id)}>
+                Delete
+              </button>
             </div>
           );
         })}

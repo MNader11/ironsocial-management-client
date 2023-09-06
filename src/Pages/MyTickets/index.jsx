@@ -6,10 +6,15 @@ const API_URL = "http://localhost:5005";
 
 function MyTickets() {
   const [tickets, setTickets] = useState([]);
+  /* const storedToken = localStorage.getItem("authToken"); */
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/tickets`)
+      .get(
+        `${API_URL}/api/tickets` /* , {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      } */
+      )
       .then((response) => setTickets(response.data))
       .catch((error) => console.log(error));
   }, []);

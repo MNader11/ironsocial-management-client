@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/auth.context";
 const API_URL = "http://localhost:5005";
 
 function AddProject() {
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(""); 
   const [name, setName] = useState("");
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");

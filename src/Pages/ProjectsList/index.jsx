@@ -49,9 +49,9 @@ function ProjectsList() {
   }, []);
 
   return (
-    <div>
+    <div style={{paddingTop: "72px", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
       {projects.map((project) => (
-        <Card sx={{ maxWidth: 345, margin: "16px" }} key={project._id}>
+        <Card sx={{ width: 345, margin: "16px" }} key={project._id}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
