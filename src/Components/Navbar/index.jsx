@@ -97,6 +97,11 @@ function Navbar() {
               {isLoggedIn && (
                 <>
                   <MenuItem onClick={handleCloseNavMenu}>
+                    <Link to="/profile">
+                      <Typography textAlign="center">Profile</Typography>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu}>
                     <Link to="/projects">
                       <Typography textAlign="center">Projects</Typography>
                     </Link>

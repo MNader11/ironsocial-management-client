@@ -6,10 +6,13 @@ const API_URL = "http://localhost:5005";
 
 function MyProjects() {
   const [projects, setProjects] = useState([]);
+  const storedToken = localStorage.getItem("authToken");
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/projects`)
+      .get(`${API_URL}/api/myProjects`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => setProjects(response.data))
       .catch((error) => console.log(error));
   }, []);
