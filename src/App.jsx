@@ -17,6 +17,7 @@ import HomePage from "./Pages/HomePage";
 import IsAnon from "./Components/isAnon";
 import IsPrivate from "./Components/isPrivate";
 import ProfilePage from "./Pages/ProfilePage";
+import Team from "./Pages/Team";
 
 function App() {
   return (
@@ -29,6 +30,14 @@ function App() {
           element={
             <IsAnon>
               <HomePage />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/team"
+          element={
+            <IsAnon>
+              <Team />
             </IsAnon>
           }
         />

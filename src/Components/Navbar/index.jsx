@@ -154,6 +154,16 @@ function Navbar() {
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 <Button
                   component={Link}
+                  to="/team"
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Team
+                </Button>
+              </Box>
+              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                <Button
+                  component={Link}
                   to="/projects"
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}

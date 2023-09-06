@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+// MUI
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { Button, CardActionArea, CardActions } from "@mui/material";
 
 const API_URL = "http://localhost:5005";
 
@@ -15,7 +22,35 @@ function TicketsList() {
   }, []);
 
   return (
-    <div>
+    <div style={{paddingTop: "72px", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
+      {tickets.map((ticket) => {
+        return (
+          <Card sx={{ maxWidth: 345}}>
+            <CardActionArea>
+              <CardMedia component="img" height="200" image={ticket.image} />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {ticket.project}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {ticket.description}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                <h3>If you think you can be a good help, please contact me on
+                  {ticket.contact}</h3>
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary">
+                Comment
+              </Button>
+            </CardActions>
+          </Card>
+        );
+      })}
+    </div>
+    /*     <div>
       <h1>Tickets</h1>
       {tickets.map((ticket) => {
         return (
@@ -28,7 +63,7 @@ function TicketsList() {
           </div>
         );
       })}
-    </div>
+    </div> */
   );
 }
 export default TicketsList;

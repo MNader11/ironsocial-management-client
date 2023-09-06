@@ -24,7 +24,7 @@ function AppsList() {
   return (
     <div style={{paddingTop: "72px", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
       {apps.map((app) => (
-        <Card key={app._id} sx={{ maxWidth: 185, margin: "16px" }}>
+        <Card key={app._id} sx={{ maxWidth: 160, margin: "16px" }}>
           <CardActionArea>
             <CardMedia
               component="img"
