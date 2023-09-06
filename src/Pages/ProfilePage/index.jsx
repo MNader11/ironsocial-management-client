@@ -90,7 +90,7 @@ const ImageMarked = styled("span")(({ theme }) => ({
   transition: theme.transitions.create("opacity"),
 }));
 
-const API_URL = "https://ironsocial-backend.onrender.com/";
+const API_URL = "https://ironsocial-backend.onrender.com";
 
 function ProfilePage() {
   return (

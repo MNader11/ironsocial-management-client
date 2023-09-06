@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "https://ironsocial-backend.onrender.com/";
+const API_URL = "https://ironsocial-backend.onrender.com";
 
 function SignupPage(props) {
   const [email, setEmail] = useState("");

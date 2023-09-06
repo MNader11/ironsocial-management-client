@@ -19,7 +19,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-const API_URL = "https://ironsocial-backend.onrender.com/";
+const API_URL = "https://ironsocial-backend.onrender.com";
 // MUI
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;

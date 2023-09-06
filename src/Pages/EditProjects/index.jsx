@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "https://ironsocial-backend.onrender.com/";
+const API_URL = "https://ironsocial-backend.onrender.com";
 
 function EditProject() {
   const [image, setImage] = useState("");

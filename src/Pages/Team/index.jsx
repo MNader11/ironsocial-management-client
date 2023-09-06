@@ -13,7 +13,7 @@ import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 
-const API_URL = "https://ironsocial-backend.onrender.com/";
+const API_URL = "https://ironsocial-backend.onrender.com";
 function Team() {
   const [team, setTeam] = useState([]);
   useEffect(() => {
