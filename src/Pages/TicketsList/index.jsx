@@ -9,7 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://ironsocial-backend.onrender.com/";
 
 function TicketsList() {
   const [tickets, setTickets] = useState([]);
@@ -22,10 +22,18 @@ function TicketsList() {
   }, []);
 
   return (
-    <div style={{paddingTop: "72px", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
+    <div
+      style={{
+        paddingTop: "72px",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+      }}
+    >
       {tickets.map((ticket) => {
         return (
-          <Card sx={{ maxWidth: 345}}>
+          <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
               <CardMedia component="img" height="200" image={ticket.image} />
               <CardContent>
@@ -36,8 +44,10 @@ function TicketsList() {
                   {ticket.description}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                <h3>If you think you can be a good help, please contact me on
-                  {ticket.contact}</h3>
+                  <h3>
+                    If you think you can be a good help, please contact me on
+                    {ticket.contact}
+                  </h3>
                 </Typography>
               </CardContent>
             </CardActionArea>

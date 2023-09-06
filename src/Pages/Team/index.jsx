@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 // MUI
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
@@ -13,7 +13,7 @@ import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://ironsocial-backend.onrender.com/";
 function Team() {
   const [team, setTeam] = useState([]);
   useEffect(() => {

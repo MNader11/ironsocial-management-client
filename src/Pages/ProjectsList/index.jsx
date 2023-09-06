@@ -19,7 +19,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://ironsocial-backend.onrender.com/";
 // MUI
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -49,7 +49,15 @@ function ProjectsList() {
   }, []);
 
   return (
-    <div style={{paddingTop: "72px", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
+    <div
+      style={{
+        paddingTop: "72px",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+      }}
+    >
       {projects.map((project) => (
         <Card sx={{ width: 345, margin: "16px" }} key={project._id}>
           <CardHeader

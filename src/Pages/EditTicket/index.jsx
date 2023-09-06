@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://ironsocial-backend.onrender.com/";
 
 function EditTicket() {
   const [project, setProject] = useState("");
@@ -14,10 +14,10 @@ function EditTicket() {
   const { ticketId } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => { 
+  useEffect(() => {
     axios.get(`${API_URL}/api/tickets/${ticketId}`).then((response) => {
       const oneTicket = response.data;
-      console.log(response.data)
+      console.log(response.data);
       setProject(oneTicket.project);
       setImage(oneTicket.image);
       setDescription(oneTicket.description);
@@ -29,7 +29,7 @@ function EditTicket() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const requestBody = { project, image, description, contact, userName };
-    console.log(requestBody)
+    console.log(requestBody);
 
     axios
       .put(`${API_URL}/api/tickets/${ticketId}/update`, requestBody)

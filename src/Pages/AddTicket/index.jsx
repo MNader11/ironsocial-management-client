@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../Context/auth.context";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://ironsocial-backend.onrender.com/";
 
 function AddTicket() {
   const [project, setProject] = useState("");
