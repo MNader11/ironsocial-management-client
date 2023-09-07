@@ -24,6 +24,7 @@ const bull = (
 
 function MyTickets() {
   const [tickets, setTickets] = useState([]);
+  const [projects, setProjects] = useState([]);
   const storedToken = localStorage.getItem("authToken");
 
   useEffect(() => {
@@ -32,6 +33,15 @@ function MyTickets() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => setTickets(response.data.userTickets))
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/api/myProjects`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setProjects(response.data.userProjects))
       .catch((error) => console.log(error));
   }, []);
 
@@ -54,29 +64,39 @@ function MyTickets() {
       {tickets &&
         tickets.map((ticket) => {
           return (
-            <div style={{
-              paddingTop: "72px",
-              display: "flex",
-              flexDirection: "column",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-            }}>
-            <Card sx={{ minWidth: 275 }}>
-              <CardContent>
-                <Typography variant="h5" component="div">
-                {ticket.project}
-                </Typography>
-              </CardContent>
-              <CardActions sx={{justifyContent: "space-around" }}>
-              <Link to={`/tickets/${ticket._id}/update`}>
-                <button type="submit">Update</button>
-              </Link>
-              <button onClick={() => deleteTicket(ticket._id)}>Delete</button>
-              </CardActions>
-            </Card>
+            <div
+              style={{
+                paddingTop: "72px",
+                display: "flex",
+                flexDirection: "column",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+              }}
+            >
+              <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                  <Typography variant="h5" component="div">
+                    {ticket.project}
+                  </Typography>
+                </CardContent>
+                <CardActions sx={{ justifyContent: "space-around" }}>
+                  <Link to={`/tickets/${ticket._id}/update`}>
+                    <button type="submit">Update</button>
+                  </Link>
+                  <button onClick={() => deleteTicket(ticket._id)}>
+                    Delete
+                  </button>
+                </CardActions>
+              </Card>
             </div>
+          );
+        })}
+    </div>
+  );
+}
+export default MyTickets;
 
-            /*             <div key={ticket._id}>
+/*             <div key={ticket._id}>
               <h2>{ticket.project}</h2>
               <p>{ticket.description}</p>
               <img src={ticket.image} />
@@ -87,9 +107,3 @@ function MyTickets() {
               </Link>
               <button onClick={() => deleteTicket(ticket._id)}>Delete</button>
             </div> */
-          );
-        })}
-    </div>
-  );
-}
-export default MyTickets;

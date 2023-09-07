@@ -10,26 +10,29 @@ import Typography from "@mui/material/Typography";
 
 const images = [
   {
-    url: "public/images/team_work.jpg",
+    url: "https://i.ibb.co/TTv8nsM/react.png",
     title: "My Projects",
     width: "30%",
+    link: "/myprojects"
   },
   {
-    url: "public/images/add_project.jpg",
+    url: "https://i.ibb.co/b7VYDBx/Design-sem-nome.png",
     title: "Add Projects",
     width: "30%",
+    link: "/projects/create"
   },
   {
-    url: "https://i.ibb.co/N3gghCY/ticket.webp",
+    url: "https://i.ibb.co/1M8V2bd/Tickets.jpg",
     title: "My Tickets",
     width: "30%",
+    link: "mytickets"
   },
   {
-    url: "https://i.ibb.co/N3gghCY/ticket.webp",
+    url: "https://i.ibb.co/58Vnrjj/tickets1.jpg",
     title: "Add Tickets",
     width: "30%",
+    link: "/tickets/create"
   },
-  
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
@@ -100,15 +103,24 @@ const API_URL = "https://ironsocial-backend.onrender.com";
 
 function ProfilePage() {
   return (
-    <div style={{ paddingTop: "50px", display: "flex", justifyContent: "space-around", alignItems: "center",  }}>
+    <div
+      style={{
+        paddingTop: "50px",
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
+      }}
+    >
       <Box
-        sx={{ display: "flex",
-        /* flexWrap: "wrap", */
-        minWidth: 900,
-        width: "100%", // Set the width you desire, e.g., "80%" or "100%"
-        maxWidth: "800px", // Set a max width to limit how wide it can grow
-        justifyContent: "space-around"/* ,
-        margin: "auto", */ }}
+        sx={{
+          display: "flex",
+          /* flexWrap: "wrap", */
+          minWidth: 900,
+          width: "100%", // Set the width you desire, e.g., "80%" or "100%"
+          maxWidth: "800px", // Set a max width to limit how wide it can grow
+          justifyContent: "space-around" /* ,
+        margin: "auto", */,
+        }}
       >
         {images.map((image) => (
           <ImageButton
@@ -131,7 +143,9 @@ function ProfilePage() {
                   pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
                 }}
               >
+                <Link to={image.link}>
                 {image.title}
+                </Link>
                 <ImageMarked className="MuiImageMarked-root" />
               </Typography>
             </Image>
@@ -142,11 +156,3 @@ function ProfilePage() {
   );
 }
 export default ProfilePage;
-
-
-
-
-
-
-
-
