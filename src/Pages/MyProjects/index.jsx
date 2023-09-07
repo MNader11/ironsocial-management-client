@@ -30,6 +30,8 @@ function MyProjects() {
       });
   };
 
+  console.log(projects);
+
   return (
     <div>
       <h1>My Projects</h1>

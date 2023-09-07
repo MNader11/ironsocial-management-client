@@ -57,7 +57,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            IronSocial
+            IRONSOCIAL
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -92,6 +92,16 @@ function Navbar() {
               <MenuItem onClick={handleCloseNavMenu}>
                 <Link to="/">
                   <Typography textAlign="center">Home</Typography>
+                </Link>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link to="/team">
+                  <Typography textAlign="center">Team</Typography>
+                </Link>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link to="/about">
+                  <Typography textAlign="center">Our Misson</Typography>
                 </Link>
               </MenuItem>
               {isLoggedIn && (
@@ -142,30 +152,30 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            IRONSOCIAL
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
               component={Link}
-              to="/"
+              to="/team"
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              Home
+              Team
+            </Button>
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Button
+              component={Link}
+              to="/about"
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Our Mission
             </Button>
           </Box>
           {isLoggedIn && (
             <>
-              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-                <Button
-                  component={Link}
-                  to="/team"
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Team
-                </Button>
-              </Box>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 <Button
                   component={Link}
@@ -244,12 +254,12 @@ function Navbar() {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/profile/mytickets">
+                    <Link to="/mytickets">
                       <Typography textAlign="center">My Tickets</Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/profile/myprojects">
+                    <Link to="/myprojects">
                       <Typography textAlign="center">My Projects</Typography>
                     </Link>
                   </MenuItem>

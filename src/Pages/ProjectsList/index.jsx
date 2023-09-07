@@ -18,6 +18,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 const API_URL = "https://ironsocial-backend.onrender.com";
 // MUI
@@ -90,7 +91,7 @@ function ProjectsList() {
               <FavoriteIcon />
             </IconButton>
             <IconButton aria-label="share">
-              <ShareIcon />
+              <OpenInNewIcon />
             </IconButton>
             <ExpandMore
               expand={expanded}

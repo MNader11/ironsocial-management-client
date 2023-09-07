@@ -8,11 +8,8 @@ const API_URL = "https://ironsocial-backend.onrender.com";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [errorMessage, setErrorMessage] = useState(undefined);
-
   const { storeToken, authenticateUser } = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -23,9 +20,9 @@ function LoginPage() {
     axios
       .post(`${API_URL}/auth/login`, requestBody)
       .then((response) => {
+        navigate("/profile");
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

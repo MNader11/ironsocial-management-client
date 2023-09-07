@@ -18,6 +18,7 @@ import IsAnon from "./Components/isAnon";
 import IsPrivate from "./Components/isPrivate";
 import ProfilePage from "./Pages/ProfilePage";
 import Team from "./Pages/Team";
+import AboutPage from "./Pages/About";
 
 function App() {
   return (
@@ -38,6 +39,14 @@ function App() {
           element={
             <IsAnon>
               <Team />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <IsAnon>
+              <AboutPage />
             </IsAnon>
           }
         />
@@ -82,7 +91,7 @@ function App() {
           }
         />
         <Route
-          path="/profile/mytickets"
+          path="/mytickets"
           element={
             <IsPrivate>
               <MyTickets />
@@ -91,7 +100,7 @@ function App() {
         />
         {
           <Route
-            path="/profile/myprojects"
+            path="/myprojects"
             element={
               <IsPrivate>
                 <MyProjects />
