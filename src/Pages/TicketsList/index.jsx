@@ -33,9 +33,14 @@ function TicketsList() {
     >
       {tickets.map((ticket) => {
         return (
-          <div style={{display: "flex" 
+          <div       style={{
+            paddingTop: "72px",
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
           }}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345, margin: '16px' }}>
               <CardActionArea>
                 <CardMedia component="img" height="200" image={ticket.image} />
                 <CardContent>

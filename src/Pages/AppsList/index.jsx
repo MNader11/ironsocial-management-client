@@ -7,7 +7,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Button, CardActionArea, CardActions, Container } from "@mui/material";
 
 const API_URL = "https://ironsocial-backend.onrender.com";
 
@@ -31,31 +31,31 @@ function AppsList() {
         justifyContent: "space-between",
       }}
     >
-      {apps.map((app) => (
-        <Card key={app._id} sx={{ maxWidth: 160, margin: "16px" }}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="140"
-              image={app.image}
-              alt={app.name}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {app.name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Delivery Type: {app.deliveryType}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              <Link to={app.link}>ORDER</Link>
-            </Button>
-          </CardActions>
-        </Card>
-      ))}
+        {apps.map((app) => (
+          <Card key={app._id} sx={{ Width: 160, margin: "16px" }}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="140"
+                image={app.image}
+                alt={app.name}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {app.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Delivery Type: {app.deliveryType}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary">
+                <Link to={app.link}>ORDER</Link>
+              </Button>
+            </CardActions>
+          </Card>
+        ))}
     </div>
 
     /*     <div>

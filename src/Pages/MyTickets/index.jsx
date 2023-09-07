@@ -1,8 +1,26 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+// MUI
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 const API_URL = "https://ironsocial-backend.onrender.com";
+
+// MUI
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
+  >
+    •
+  </Box>
+);
 
 function MyTickets() {
   const [tickets, setTickets] = useState([]);
@@ -36,7 +54,29 @@ function MyTickets() {
       {tickets &&
         tickets.map((ticket) => {
           return (
-            <div key={ticket._id}>
+            <div style={{
+              paddingTop: "72px",
+              display: "flex",
+              flexDirection: "column",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+            }}>
+            <Card sx={{ minWidth: 275 }}>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                {ticket.project}
+                </Typography>
+              </CardContent>
+              <CardActions sx={{justifyContent: "space-around" }}>
+              <Link to={`/tickets/${ticket._id}/update`}>
+                <button type="submit">Update</button>
+              </Link>
+              <button onClick={() => deleteTicket(ticket._id)}>Delete</button>
+              </CardActions>
+            </Card>
+            </div>
+
+            /*             <div key={ticket._id}>
               <h2>{ticket.project}</h2>
               <p>{ticket.description}</p>
               <img src={ticket.image} />
@@ -46,7 +86,7 @@ function MyTickets() {
                 <button type="submit">Update</button>
               </Link>
               <button onClick={() => deleteTicket(ticket._id)}>Delete</button>
-            </div>
+            </div> */
           );
         })}
     </div>
