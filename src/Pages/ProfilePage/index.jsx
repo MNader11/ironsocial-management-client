@@ -10,25 +10,31 @@ import Typography from "@mui/material/Typography";
 
 const images = [
   {
-    url: "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png",
+    url: "public/images/team_work.jpg",
     title: "My Projects",
     width: "30%",
   },
   {
-    url: "https://png.pngtree.com/png-vector/20190418/ourmid/pngtree-help-comic-speech-bubble-png-image_12504.jpg",
+    url: "public/images/add_project.jpg",
+    title: "Add Projects",
+    width: "30%",
+  },
+  {
+    url: "https://i.ibb.co/N3gghCY/ticket.webp",
     title: "My Tickets",
     width: "30%",
   },
   {
-    url: "/static/images/buttons/camera.jpg",
-    title: "Camera",
+    url: "https://i.ibb.co/N3gghCY/ticket.webp",
+    title: "Add Tickets",
     width: "30%",
   },
+  
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
-  height: 200,
+  height: 400,
   [theme.breakpoints.down("sm")]: {
     width: "100% !important", // Overrides inline-style
     height: 100,
@@ -94,13 +100,18 @@ const API_URL = "https://ironsocial-backend.onrender.com";
 
 function ProfilePage() {
   return (
-    <div style={{ paddingTop: "50px" }}>
+    <div style={{ paddingTop: "50px", display: "flex", justifyContent: "space-around", alignItems: "center",  }}>
       <Box
-        sx={{ display: "flex", flexWrap: "wrap", minWidth: 300, width: "100%" }}
+        sx={{ display: "flex",
+        /* flexWrap: "wrap", */
+        minWidth: 900,
+        width: "100%", // Set the width you desire, e.g., "80%" or "100%"
+        maxWidth: "800px", // Set a max width to limit how wide it can grow
+        justifyContent: "space-around"/* ,
+        margin: "auto", */ }}
       >
         {images.map((image) => (
           <ImageButton
-            focusRipple
             key={image.title}
             style={{
               width: image.width,
@@ -131,3 +142,11 @@ function ProfilePage() {
   );
 }
 export default ProfilePage;
+
+
+
+
+
+
+
+

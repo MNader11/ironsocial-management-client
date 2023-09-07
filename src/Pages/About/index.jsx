@@ -44,21 +44,19 @@ function AboutPage() {
             <Typography component="div" variant="h5">
               <h6>
                 The ultimate source for Ironhack students looking for Coworking
-                and having fun together.
+                and having fun.
               </h6>
             </Typography>
-{/*             <Typography
+            <Typography
               variant="subtitle1"
               color="text.secondary"
               component="div"
               width={300}
               marginTop={2}
             >
-              <p>
-                "Excited about learning new stuff and building captivating
-                websites."
-              </p>
-            </Typography> */}
+              <button><Link to={"/login"}>Login</Link></button>
+              <button><Link to={"/signup"}>Signup</Link></button>
+            </Typography>
           </CardContent>
         </Box>
       </Card>

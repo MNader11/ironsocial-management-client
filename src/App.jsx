@@ -13,6 +13,7 @@ import ProjectsList from "./Pages/ProjectsList";
 import AddProject from "./Pages/AddProject";
 import EditProject from "./Pages/EditProjects";
 import MyProjects from "./Pages/MyProjects";
+import MyComments from "./Pages/MyComments";
 import HomePage from "./Pages/HomePage";
 import IsAnon from "./Components/isAnon";
 import IsPrivate from "./Components/isPrivate";
@@ -97,6 +98,16 @@ function App() {
             element={
               <IsPrivate>
                 <MyProjects />
+              </IsPrivate>
+            }
+          />
+        }
+        {
+          <Route
+            path="/mycomments"
+            element={
+              <IsPrivate>
+                <MyComments />
               </IsPrivate>
             }
           />

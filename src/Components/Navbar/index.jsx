@@ -154,7 +154,7 @@ function Navbar() {
           >
             IRONSOCIAL
           </Typography>
-          {isLoggedIn && (
+          {isLoggedIn ? (
             <>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 <Button
@@ -194,6 +194,29 @@ function Navbar() {
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   Tickets
+                </Button>
+              </Box>
+            </>
+          ) : (
+            <>
+              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                <Button
+                  component={Link}
+                  to="/team"
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Team
+                </Button>
+              </Box>
+              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                <Button
+                  component={Link}
+                  to="/About"
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Our Misson
                 </Button>
               </Box>
             </>
@@ -241,6 +264,11 @@ function Navbar() {
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Link to="/myprojects">
                       <Typography textAlign="center">My Projects</Typography>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Link to="/mycomments">
+                      <Typography textAlign="center">My Comments</Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={logOutUser}>
