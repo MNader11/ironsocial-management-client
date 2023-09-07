@@ -154,26 +154,6 @@ function Navbar() {
           >
             IRONSOCIAL
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Button
-              component={Link}
-              to="/team"
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Team
-            </Button>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Button
-              component={Link}
-              to="/about"
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Our Mission
-            </Button>
-          </Box>
           {isLoggedIn && (
             <>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>

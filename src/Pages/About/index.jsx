@@ -39,7 +39,7 @@ function AboutPage() {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
             <Typography component="div" variant="h5">
-              <h4>Welcome to IronSocial</h4>
+              <h4>Welcome to IronSocial!</h4>
             </Typography>
             <Typography component="div" variant="h5">
               <h6>
@@ -47,7 +47,7 @@ function AboutPage() {
                 and having fun together.
               </h6>
             </Typography>
-            <Typography
+{/*             <Typography
               variant="subtitle1"
               color="text.secondary"
               component="div"
@@ -58,7 +58,7 @@ function AboutPage() {
                 "Excited about learning new stuff and building captivating
                 websites."
               </p>
-            </Typography>
+            </Typography> */}
           </CardContent>
         </Box>
       </Card>

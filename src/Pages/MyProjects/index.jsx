@@ -13,7 +13,7 @@ function MyProjects() {
       .get(`${API_URL}/api/myProjects`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setProjects(response.data))
+      .then((response) => setProjects(response.data.userProjects))
       .catch((error) => console.log(error));
   }, []);
 
@@ -30,7 +30,7 @@ function MyProjects() {
       });
   };
 
-  console.log(projects);
+  console.log("projects:",projects);
 
   return (
     <div>

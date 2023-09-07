@@ -58,14 +58,7 @@ function App() {
             </IsAnon>
           }
         />
-        <Route
-          path="/profile"
-          element={
-            <IsPrivate>
-              <ProfilePage />
-            </IsPrivate>
-          }
-        />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route
           path="/tickets"
           element={

@@ -28,35 +28,38 @@ function TicketsList() {
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
       }}
     >
       {tickets.map((ticket) => {
         return (
-          <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea>
-              <CardMedia component="img" height="200" image={ticket.image} />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {ticket.project}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {ticket.description}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  <h3>
-                    If you think you can be a good help, please contact me on
-                    {ticket.contact}
-                  </h3>
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Comment
-              </Button>
-            </CardActions>
-          </Card>
+          <div style={{display: "flex" 
+          }}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia component="img" height="200" image={ticket.image} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {ticket.project}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {ticket.description}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <h3>
+                      If you think you can be a good help, please contact me on
+                      {ticket.contact}
+                    </h3>
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button size="small" color="primary">
+                  Comment
+                </Button>
+              </CardActions>
+            </Card>
+          </div>
         );
       })}
     </div>

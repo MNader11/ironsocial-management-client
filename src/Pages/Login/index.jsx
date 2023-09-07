@@ -20,9 +20,9 @@ function LoginPage() {
     axios
       .post(`${API_URL}/auth/login`, requestBody)
       .then((response) => {
-        navigate("/profile");
         storeToken(response.data.authToken);
         authenticateUser();
+        navigate("/profile");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
