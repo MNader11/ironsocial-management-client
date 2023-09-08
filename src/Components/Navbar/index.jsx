@@ -154,7 +154,26 @@ function Navbar() {
           >
             IRONSOCIAL
           </Typography>
-          {isLoggedIn ? (
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Button
+              component={Link}
+              to="/team"
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Team
+            </Button>
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Button
+              component={Link}
+              to="/about"
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Our Mission
+            </Button>
+          </Box>
             <>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 <Button
@@ -196,9 +215,6 @@ function Navbar() {
                   Tickets
                 </Button>
               </Box>
-            </>
-          ) : (
-            <>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 <Button
                   component={Link}
@@ -220,7 +236,6 @@ function Navbar() {
                 </Button>
               </Box>
             </>
-          )}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

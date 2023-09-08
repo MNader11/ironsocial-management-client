@@ -13,7 +13,7 @@ import ProjectsList from "./Pages/ProjectsList";
 import AddProject from "./Pages/AddProject";
 import EditProject from "./Pages/EditProjects";
 import MyProjects from "./Pages/MyProjects";
-import MyComments from "./Pages/MyComments";
+/* import MyComments from "./Pages/MyComments"; */
 import HomePage from "./Pages/HomePage";
 import IsAnon from "./Components/isAnon";
 import IsPrivate from "./Components/isPrivate";
@@ -59,7 +59,14 @@ function App() {
             </IsAnon>
           }
         />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <ProfilePage />
+            </IsPrivate>
+          }
+        />
         <Route
           path="/tickets"
           element={
@@ -102,7 +109,7 @@ function App() {
             }
           />
         }
-        {
+{/*         {
           <Route
             path="/mycomments"
             element={
@@ -111,7 +118,7 @@ function App() {
               </IsPrivate>
             }
           />
-        }
+        } */}
         <Route
           path="/coworks"
           element={

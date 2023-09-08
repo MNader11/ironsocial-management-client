@@ -25,7 +25,7 @@ const images = [
     url: "https://i.ibb.co/1M8V2bd/Tickets.jpg",
     title: "My Tickets",
     width: "30%",
-    link: "mytickets"
+    link: "/mytickets"
   },
   {
     url: "https://i.ibb.co/58Vnrjj/tickets1.jpg",

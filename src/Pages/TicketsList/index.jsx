@@ -13,10 +13,13 @@ const API_URL = "https://ironsocial-backend.onrender.com";
 
 function TicketsList() {
   const [tickets, setTickets] = useState([]);
+  const storedToken = localStorage.getItem("authToken");
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/tickets`)
+      .get(`${API_URL}/api/tickets`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => setTickets(response.data))
       .catch((error) => console.log(error));
   }, []);
@@ -28,43 +31,35 @@ function TicketsList() {
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
       }}
     >
       {tickets.map((ticket) => {
         return (
-          <div       style={{
-            paddingTop: "72px",
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-          }}>
-            <Card sx={{ maxWidth: 345, margin: '16px' }}>
-              <CardActionArea>
-                <CardMedia component="img" height="200" image={ticket.image} />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {ticket.project}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {ticket.description}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    <h3>
-                      If you think you can be a good help, please contact me on
-                      {ticket.contact}
-                    </h3>
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  Comment
-                </Button>
-              </CardActions>
-            </Card>
-          </div>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardActionArea>
+              <CardMedia component="img" height="200" image={ticket.image} />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {ticket.project}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {ticket.description}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  <h3>
+                    If you think you can be a good help, please contact me on
+                    {ticket.contact}
+                  </h3>
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary">
+                Comment
+              </Button>
+            </CardActions>
+          </Card>
         );
       })}
     </div>
