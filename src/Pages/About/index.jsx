@@ -39,7 +39,7 @@ function AboutPage() {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
             <Typography component="div" variant="h5">
-              <h4>Welcome to IronSocial!</h4>
+              <h4>Welcome to IronSocial</h4>
             </Typography>
             <Typography component="div" variant="h5">
               <h6>
