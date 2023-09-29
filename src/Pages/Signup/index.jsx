@@ -57,7 +57,7 @@ function SignupPage(props) {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign Up
           </Typography>
           <Box
             component="form"
@@ -115,7 +115,7 @@ function SignupPage(props) {
               {"Already have an account?"}{" "}
               <Link to={"/login"} style={{ color: "#227A60" }}>
                 {" "}
-                Log in
+                Login
               </Link>
             </Typography>
           </Box>

@@ -2,28 +2,29 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 // MUI
-/* import * as React from "react";
+import * as React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography"; */
+import Typography from "@mui/material/Typography";
 
 const API_URL = "https://ironsocial-backend.onrender.com";
 
 // MUI
-/* const bull = (
+const bull = (
   <Box
     component="span"
     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
   >
     •
   </Box>
-); */
+);
 
 function MyTickets() {
   const [tickets, setTickets] = useState([]);
+  const [projects, setProjects] = useState([]);
   const storedToken = localStorage.getItem("authToken");
 
   useEffect(() => {
@@ -35,31 +36,16 @@ function MyTickets() {
       .catch((error) => console.log(error));
   }, []);
 
-  return (
-    <div>
-      <h1>My Tickets</h1>
-      <ul>
-        {tickets.map((ticket) => {
-          return (
-            <li className="tickets-text" key={ticket._id}>
-              <h2>{ticket.project}</h2>
-              <p>{ticket.description}</p>
-              <img src={ticket.image} />
-              <p>{ticket.contact}</p>
-              <p>{ticket.userName}</p>
-              <Link key={ticket._id} to={`/tickets/${ticket._id}/update`}>
-                <button type="submit">Update</button>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/api/myProjects`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setProjects(response.data.userProjects))
+      .catch((error) => console.log(error));
+  }, []);
 
-{
-  /* const deleteTicket = (ticketId) => {
+  const deleteTicket = (ticketId) => {
     axios
       .delete(`${API_URL}/api/tickets/${ticketId}/delete`)
       .then(() => {
@@ -70,30 +56,15 @@ function MyTickets() {
       .catch((error) => {
         console.log(error);
       });
-  }; */
-}
+  };
 
-export default MyTickets;
-
-{
-  /*              <div key={ticket._id}>
-              <h2>{ticket.project}</h2>
-              <p>{ticket.description}</p>
-              <img src={ticket.image} />
-              <p>{ticket.contact}</p>
-              <p>{ticket.userName.name}</p>
-              <Link to={`/tickets/${ticket._id}/update`}>
-                <button type="submit">Update</button>
-              </Link>
-              <button onClick={() => deleteTicket(ticket._id)}>Delete</button>
-            </div>
-
-
-                         <h1>My Tickets</h1>
+  return (
+    <div>
+      <h1>My Tickets</h1>
       {tickets &&
         tickets.map((ticket) => {
           return (
-            <div key={ticket._id}
+            <div
               style={{
                 paddingTop: "72px",
                 display: "flex",
@@ -102,7 +73,7 @@ export default MyTickets;
                 justifyContent: "space-between",
               }}
             >
-              <Card key={ticket._id} sx={{ minWidth: 275 }}>
+              <Card sx={{ minWidth: 275 }}>
                 <CardContent>
                   <Typography variant="h5" component="div">
                     {ticket.project}
@@ -119,5 +90,20 @@ export default MyTickets;
               </Card>
             </div>
           );
-        })} */
+        })}
+    </div>
+  );
 }
+export default MyTickets;
+
+/*             <div key={ticket._id}>
+              <h2>{ticket.project}</h2>
+              <p>{ticket.description}</p>
+              <img src={ticket.image} />
+              <p>{ticket.contact}</p>
+              <p>{ticket.userName.name}</p>
+              <Link to={`/tickets/${ticket._id}/update`}>
+                <button type="submit">Update</button>
+              </Link>
+              <button onClick={() => deleteTicket(ticket._id)}>Delete</button>
+            </div> */

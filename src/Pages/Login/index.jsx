@@ -34,9 +34,9 @@ function LoginPage() {
     axios
       .post(`${API_URL}/auth/login`, requestBody)
       .then((response) => {
-        navigate("/profile");
         storeToken(response.data.authToken);
         authenticateUser();
+        navigate("/profile");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -59,7 +59,7 @@ function LoginPage() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Login
           </Typography>
           <Box
             component="form"
@@ -92,22 +92,22 @@ function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-              <Button
-                type="submit"
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                color="primary"
-              >
-                Log In
-              </Button>
-              {errorMessage && <p>{errorMessage}</p>}
-              <Typography variant="body1">
-                {"Don't have an account?"}{" "}
-                <Link to={"/signup"} style={{ color: "#227A60" }}>
-                  {" "}
-                  Sign Up
-                </Link>
-              </Typography>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              color="primary"
+            >
+              Login
+            </Button>
+            {errorMessage && <p>{errorMessage}</p>}
+            <Typography variant="body1">
+              {"Don't have an account?"}{" "}
+              <Link to={"/signup"} style={{ color: "#227A60" }}>
+                {" "}
+                Sign Up
+              </Link>
+            </Typography>
           </Box>
         </Box>
       </Container>

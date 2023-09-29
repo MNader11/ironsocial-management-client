@@ -14,6 +14,7 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -43,11 +44,8 @@ function ProjectsList() {
   };
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("authToken");
     axios
-      .get(`${API_URL}/api/projects`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .get(`${API_URL}/api/projects`)
       .then((response) => setProjects(response.data))
       .catch((error) => console.log(error));
   }, []);
@@ -90,12 +88,12 @@ function ProjectsList() {
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
+            {/* <IconButton aria-label="add to favorites">
               <FavoriteIcon />
             </IconButton>
             <IconButton aria-label="share">
               <OpenInNewIcon />
-            </IconButton>
+            </IconButton> */}
             <ExpandMore
               expand={expanded}
               onClick={handleExpandClick}

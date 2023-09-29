@@ -154,26 +154,7 @@ function Navbar() {
           >
             IRONSOCIAL
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Button
-              component={Link}
-              to="/team"
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Team
-            </Button>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Button
-              component={Link}
-              to="/about"
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Our Mission
-            </Button>
-          </Box>
+          {isLoggedIn ? (
             <>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 <Button
@@ -215,6 +196,9 @@ function Navbar() {
                   Tickets
                 </Button>
               </Box>
+            </>
+          ) : (
+            <>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 <Button
                   component={Link}
@@ -236,6 +220,7 @@ function Navbar() {
                 </Button>
               </Box>
             </>
+          )}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -267,11 +252,6 @@ function Navbar() {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/tickets/create">
-                      <Typography textAlign="center">Add Ticket</Typography>
-                    </Link>
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseNavMenu}>
                     <Link to="/mytickets">
                       <Typography textAlign="center">My Tickets</Typography>
                     </Link>
@@ -279,11 +259,6 @@ function Navbar() {
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Link to="/myprojects">
                       <Typography textAlign="center">My Projects</Typography>
-                    </Link>
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Link to="/mycomments">
-                      <Typography textAlign="center">My Comments</Typography>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={logOutUser}>
