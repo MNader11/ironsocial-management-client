@@ -67,7 +67,7 @@ function Team() {
           <CardMedia
             component="img"
             sx={{ width: 151 }}
-            image="public\Images\elias.jpg"
+            image="https://i.ibb.co/Cm092Kb/elias.jpg"
             alt="Live from space album cover"
           />
         </Card>
@@ -99,7 +99,7 @@ function Team() {
           <CardMedia
             component="img"
             sx={{ width: 151 }}
-            image="public\Images\mehdi.jpg"
+            image="https://i.ibb.co/TPHWW04/mehdi.jpg"
             alt="Live from space album cover"
           />
         </Card>

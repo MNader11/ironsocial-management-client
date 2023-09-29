@@ -16,7 +16,6 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 
 const API_URL = "https://ironsocial-backend.onrender.com";
 
-
 function HomePage() {
   return (
     <div
@@ -34,7 +33,7 @@ function HomePage() {
         <CardMedia
           component="img"
           sx={{ width: 400, height: 300 }}
-          image="public\Images\ironbeers.jpg"
+          image="https://i.ibb.co/vwhncxD/ironbeers.jpg"
           alt="Live from space album cover"
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -55,8 +54,12 @@ function HomePage() {
               width={300}
               marginTop={2}
             >
-              <button><Link to={"/login"}>Login</Link></button>
-              <button><Link to={"/signup"}>Signup</Link></button>
+              <button>
+                <Link to={"/login"}>Login</Link>
+              </button>
+              <button>
+                <Link to={"/signup"}>Signup</Link>
+              </button>
             </Typography>
           </CardContent>
         </Box>
@@ -71,4 +74,3 @@ function HomePage() {
   );
 }
 export default HomePage;
-
